@@ -1,0 +1,127 @@
+ -- This query determines the total amount of players retained and how many have joined for each day of a calendar year. From there we calculate the fractional retention of those retained players. --
+
+
+/* Retrieves all the information required from a joining of matches_info and player_info table. 
+Also taking a max calculation of the players last play date */ 
+WITH
+ retention_1 AS(
+  SELECT
+    m.player_id,
+    p.joined,
+    MAX (m.day) AS day_played,
+  FROM
+    `fproject-oct-19.gamecompanydata.matches_info` m
+  JOIN
+    `fproject-oct-19.gamecompanydata.player_info` p
+  ON
+    m.player_id = p.player_id
+  GROUP BY
+    m.player_id,
+    p.joined ),
+/*Counting the amount of players and taking the last day played minus the day they joined  */ 
+  retention_2 AS (
+  SELECT
+    joined,
+    COUNT(player_id) AS player_joined,
+    day_played - joined AS max_j,
+    player_id
+  FROM
+    retention_1
+  GROUP BY
+    joined,
+    day_played,
+    player_id ),
+/*calculating  the retention of players if the played the game after 30 days from their join dated */ 
+  retention_3 AS(
+  SELECT
+    joined,
+    COUNT(player_id) AS player_joined,
+    SUM(
+      CASE
+        WHEN 30 < max_j THEN 1
+      ELSE
+      0
+    END
+      ) AS ret
+  FROM
+    retention_2
+  GROUP BY
+    joined )
+
+/*Retrieving everything from the previous select statements as well as calculating Fractional Retention */    
+
+SELECT
+  Joined AS day_joined,
+  player_joined,
+  ret AS retained,
+  ROUND((ret/player_joined),2) AS fractional_Retention
+FROM
+  retention_3
+
+
+--- The following queries below is pulling all the player information such as player_id and age ---
+WITH
+  matches_join AS (
+  SELECT
+    player_id,
+    MAX(day) AS last_day_played
+  FROM
+    `fproject-oct-19.gamecompanydata.matches_info` m
+  GROUP BY
+    player_id ),
+  duplicate AS (
+  SELECT
+    p.player_id,
+    p.joined,
+    last_day_played,
+    p.system,
+    ROUND(SUM(price),2) AS player_spending,
+    p.location,
+    p.age
+  FROM
+    `fproject-oct-19.gamecompanydata.player_info` p
+  JOIN
+    `fproject-oct-19.gamecompanydata.purchase_info` pu
+  ON
+    pu.player_id = p.player_id
+  JOIN
+    `fproject-oct-19.gamecompanydata.item_info` it
+  ON
+    it.item_id = pu.item_id
+  JOIN
+    matches_join
+  ON
+    p.player_id = matches_join.player_id
+  GROUP BY
+    p.player_id,
+    p.joined,
+    p.location,
+    p.age,
+    last_day_played, 
+    p.system ),
+  retention AS (
+  SELECT
+    player_id,
+    last_day_played,
+    joined AS day_joined,
+    CASE
+      WHEN 30 < (last_day_played-joined) THEN "Retained"
+    ELSE
+    "Not Retained"
+  END
+    AS retained,
+    player_spending,
+    location,
+    age,
+    system
+  FROM
+    duplicate
+  ORDER BY
+    4 )
+
+SELECT
+  *
+FROM
+  retention
+ORDER BY
+  player_id DESC
