@@ -1,4 +1,4 @@
--- SQL QUERIES:
+-- SQL QUERIES
 
 Query 1: Determines the total amount of players retained and how many have joined for each day of a calendar year. From there we calculate the fractional retention of those retained players. 
 
@@ -31,3 +31,5 @@ Graph 3: Please refer to sheet “Location” on the spreadsheet “General Play
 Spreadsheet “Final Retention” : https://docs.google.com/spreadsheets/d/1sEAaqhHQhbVkZGxR7n8lVR7U8vXrUsBzjMlQJZ_UQBY/edit?usp=sharing
 
 Spreadsheet “ General Player Information”: https://docs.google.com/spreadsheets/d/1YMIoc2P7YYcDyuHQ809qk38UjsMUBnUChE1FllMi_yo/edit?usp=sharing
+
+SQL Queries: Please refer to text file names "sqlQuery.txt"
