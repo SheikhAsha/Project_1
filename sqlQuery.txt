@@ -1,5 +1,4 @@
- -- This query determines the total amount of players retained and how many have joined for each day of a calendar year. From there we calculate the fractional retention of those retained players. --
-
+QUERY 1: This query determines the total amount of players retained and how many have joined for each day of a calendar year. From there we calculate the fractional retention of those retained players. 
 
 /* Retrieves all the information required from a joining of matches_info and player_info table. 
 Also taking a max calculation of the players last play date */ 
@@ -59,7 +58,7 @@ FROM
   retention_3
 
 
---- The following queries below is pulling all the player information such as player_id and age ---
+QUERY 2: The following queries below is pulling all the player information such as player_id and age ---
 WITH
   matches_join AS (
   SELECT
