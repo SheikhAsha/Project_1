@@ -9,7 +9,7 @@
 
 ## 30 Day Retention: Lifecycle
 
-Looking at the spreadsheet we can see that there is a steady number of retained players based off the days they have joined the game. The company throughout the year has retained more the 50 throughout the year. There have been some spikes for example and day 127 where there was a large dip of only 18 retained players but it balanced out where on day 55 and day 290 where there large retention numbers of 131 and 125. Overall this game company has been able to achieve a successful retention rate throughout the year. 
+Looking at the spreadsheet we can see that there is a steady number of retained players based off the days they have joined the game. The company throughout the year has retained more the 50 throughout the year. There have been some spikes for example on day 127 where there was a large dip of only 18 retained players but it balanced out where on day 55 and day 290 there were large retention numbers of 131 and 125. Overall this game company has been able to achieve a successful retention rate throughout the year. 
 
 ![Retention Lifecycle](./Images/Retention_Lifecyle.png)
 
@@ -18,7 +18,7 @@ Looking at the spreadsheet we can see that there is a steady number of retained 
 
 ## 30 Day Retention: Player spending
 
-For the lifecycle of the game it did not factor in retain players as not retained players spending more based of location. Looking at age as well it is shown that retained played tended to spend less. The age range that was viewed as 6 to 33 years old.
+For the lifecycle of the game based off location, player spending did not factor in retained players and not retained players. Looking at age as well it is shown that retained played tended to spend less. The age range that was viewed as 6 to 33 years old.
 
 ![Retention player spending by location](./Images/playerSpending_location.png)
 ![Retention player spending by age](./Images/playerSpending_age.png)
@@ -28,7 +28,7 @@ For the lifecycle of the game it did not factor in retain players as not retaine
 
 ## 30 Day Retention: Location
 
-Overall looking at location of players their is a higher number of retained players based on the each continent but as it turns out there is not a significant difference as to whether the continent a certain continent had more retained players then another. 
+Overall looking at location of players their is a higher number of retained players based on the each continent but as it turns out there is not a significant difference as to whether a certain continent had more retained players then another. 
 
 ![Retention based off location](./Images/Retention_location.png)
 
