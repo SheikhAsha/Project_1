@@ -12,7 +12,7 @@
 
 Looking at the spreadsheet we can see that there is a steady number of retained players based off the days they have joined the game. The company throughout the year has retained more the 50 throughout the year. There have been some spikes for example on day 127 where there was a large dip of only 18 retained players but it balanced out where on day 55 and day 290 there were large retention numbers of 131 and 125. Overall this game company has been able to achieve a successful retention rate throughout the year. 
 
-![Retention Lifecycle](./Images/Retention_Lifecyle.png)
+                          ![Retention Lifecycle](./Images/Retention_Lifecyle.png)
 
 *Graph 1*: Futher refrence refer to sheet “Retention” on the spreadsheet “Final Retention”. Graph titled ‘Retained Players per Day’
 
